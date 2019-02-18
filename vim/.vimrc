@@ -1,10 +1,17 @@
 "$XDG specifications can be referred at
 "https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+"This is the original file
 set undodir=$XDG_CACHE_HOME/vim/undo,~/,/tmp
 set directory=$XDG_CACHE_HOME/vim/swap,~/,/tmp
 set backupdir=$XDG_CACHE_HOME/vim/backup,~/,/tmp
 set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
-set runtimepath=$XDG_RUNTIME_DIR/vim,$XDG_RUNTIME_DIR/vim/after,$VIMRUNTIME
+set runtimepath=$XDG_RUNTIME_DIR/vim,$XDG_RUNTIME_DIR/vim/after,$VIMRUNTIME,~/.vim
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/vim-easy-align'
+
+call plug#end()
 
 "To enable file type detection
 filetype on
@@ -29,3 +36,10 @@ set t_Co=256
 
 "Change colorscheme
 colorscheme elflord
+
+"Set code folding
+set foldmethod=indent
+set foldlevel=99
+
+"enable folding with space bar
+nnoremap <space> za
