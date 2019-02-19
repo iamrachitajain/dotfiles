@@ -21,6 +21,10 @@ Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'shougo/neocomplete.vim'                                       
 Plug 'nvie/vim-flake8', {'for': 'python'} 
 Plug 'davidhalter/jedi-vim', {'for': 'python'} 
+Plug 'ervandew/supertab'
+Plug 'nathanaelkane/vim-indent-guides', {'for': 'python'}
+Plug 'jiangmiao/auto-pairs'
+Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
@@ -58,3 +62,12 @@ set showcmd
 
 "Shortcut to open nerdtree
 map <C-n> :NERDTreeToggle<CR>
+
+"define BadWhitespace before using in a match
+highlight BadWhitespace ctermbg=blue guibg=darkred
+
+"For extra whitespaces
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+"colorscheme monokai
+colorscheme OceanicNext
