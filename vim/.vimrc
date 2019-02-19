@@ -9,7 +9,18 @@ set runtimepath=$XDG_RUNTIME_DIR/vim,$XDG_RUNTIME_DIR/vim/after,$VIMRUNTIME,~/.v
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'tmhedberg/SimpylFold'
 Plug 'junegunn/vim-easy-align'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+Plug 'shougo/neocomplete.vim'                                       
+Plug 'nvie/vim-flake8', {'for': 'python'} 
+Plug 'davidhalter/jedi-vim', {'for': 'python'} 
 
 call plug#end()
 
@@ -25,17 +36,15 @@ augroup Python_Rust_Settings
 "All Line Numbers
 set number
 
-"File Encoding
-set encoding=utf-8
-
 "Display Status Line
 set laststatus=2
 
 "Change display to use 256 colors
 set t_Co=256
 
-"Change colorscheme
-colorscheme elflord
+"Change colorscheme to dracula
+"Using Dracula dark theme
+colorscheme dracula
 
 "Set code folding
 set foldmethod=indent
@@ -43,3 +52,9 @@ set foldlevel=99
 
 "enable folding with space bar
 nnoremap <space> za
+
+"show typed commands
+set showcmd
+
+"Shortcut to open nerdtree
+map <C-n> :NERDTreeToggle<CR>
